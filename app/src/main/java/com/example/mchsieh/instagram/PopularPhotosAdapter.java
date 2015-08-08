@@ -55,7 +55,7 @@ public class PopularPhotosAdapter extends ArrayAdapter<PopularPhotos> {
         ivPhoto.setImageResource(0); // clear img every time!!!
         Picasso.with(getContext()).load(photo.img_url).into(ivPhoto);
         // like count
-        tvLikeCount.setText(String.valueOf(photo.like_count));
+        tvLikeCount.setText(String.valueOf(photo.like_count)+" like");
         // caption
         tvCaption.setText(photo.caption);
 
@@ -69,21 +69,21 @@ public class PopularPhotosAdapter extends ArrayAdapter<PopularPhotos> {
         long distanceInMin = difference / 60000;
 
         if ( 0 <= distanceInMin && distanceInMin <= 1 ) {
-            return "1 minute ago";
+            return "1 minute";
         } else if ( 1 <= distanceInMin && distanceInMin <= 45 ) {
-            return distanceInMin + " minutes ago";
+            return distanceInMin + " minutes";
         } else if ( 45 <= distanceInMin && distanceInMin <= 89 ) {
-            return "1 hour ago";
+            return "1 hour";
         } else if ( 90 <= distanceInMin && distanceInMin <= 1439 ) {
-            return (distanceInMin / 60) + " hours ago";
+            return (distanceInMin / 60) + " hours";
         } else if ( 1440 <= distanceInMin && distanceInMin <= 2529 ) {
-            return "1 day ago";
+            return "1 day";
         } else if ( 2530 <= distanceInMin && distanceInMin <= 43199 ) {
-            return (distanceInMin / 1440) + "days ago";
+            return (distanceInMin / 1440) + "days";
         } else if ( 43200 <= distanceInMin && distanceInMin <= 86399 ) {
-            return "1 month ago";
+            return "1 month";
         } else if ( 86400 <= distanceInMin && distanceInMin <= 525599 ) {
-            return (distanceInMin / 43200) + " months ago";
+            return (distanceInMin / 43200) + " months";
         } else {
             long distanceInYears = distanceInMin / 525600;
             return distanceInYears + " years ago";

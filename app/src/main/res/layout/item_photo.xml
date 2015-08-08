@@ -46,8 +46,8 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:id="@+id/ivFavorite"
@@ -57,7 +57,7 @@
         android:layout_alignParentStart="true" />
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:text="999"
         android:gravity="center_vertical"
         android:id="@+id/tvLikeCount"
