@@ -38,24 +38,25 @@ public class PhotoActivity extends Activity {
 
         String url ="https://api.instagram.com/v1/media/popular?client_id="+CLIENT_ID;
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(url,null, new JsonHttpResponseHandler(){
+        client.get(url, null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 JSONArray photosJsonArray;
                 try {
                     photosJsonArray = response.getJSONArray("data");
-                    for (int i = 0; i <photosJsonArray.length(); i++){
+                    for (int i = 0; i < photosJsonArray.length(); i++) {
                         JSONObject photoObject = photosJsonArray.getJSONObject(i);
                         PopularPhotos photo = new PopularPhotos();
-                        photo.user_name=photoObject.getJSONObject("user").getString("username");
-                        photo.caption=photoObject.getJSONObject("caption").getString("text");
-                        photo.img_url=photoObject.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
-                        photo.img_height=photoObject.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
-                        photo.like_count=photoObject.getJSONObject("likes").getInt("count");
+                        photo.profile_img_url = photoObject.getJSONObject("user").getString("profile_picture");
+                        photo.user_name = photoObject.getJSONObject("user").getString("username");
+                        photo.createdTime = photoObject.getString("created_time");
+                        photo.caption = photoObject.getJSONObject("caption").getString("text");
+                        photo.img_url = photoObject.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
+                        photo.img_height = photoObject.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
+                        photo.like_count = photoObject.getJSONObject("likes").getInt("count");
                         photosArrayList.add(photo);
                     }
-
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 adapter.notifyDataSetChanged();
@@ -89,4 +90,8 @@ public class PhotoActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
+
+
