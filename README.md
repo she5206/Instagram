@@ -19,7 +19,7 @@ The following **optional** features are implemented:
 * [ ] Show latest comments for each photo
 * [x] Display each photo with the same style and proportions as the real Instagram
 * [x] Display each user profile image using a RoundedImageViewDisplay each user profile image using a [RoundedImageView](https://github.com/vinc3m1/RoundedImageView)
-* [ ] Display a nice default placeholder graphic for each image during loading
+* [x] Display a nice default placeholder graphic for each image during loading
 * [ ] Improved the user interface through styling and coloring
 
 The following **bonus** features are implemented:
